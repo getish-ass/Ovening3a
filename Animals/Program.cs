@@ -32,19 +32,33 @@ namespace Animals
             //animal[4].Talk();
 
 
-            NewMethod(animal);
+           //NewMethod(animal);
 
-        }
+            List<UserError> usererror = new List<UserError>();
+            usererror.Add(new NumericInputError());
+            usererror.Add(new TextInputError());
+            usererror.Add(new LongLengthInputError());
+            usererror.Add(new ShortLengthInputError());
+            usererror.Add(new WrongInputError());
 
-        private static void NewMethod(List<Animal> animal)
-        {
-            foreach (var jur in animal)
+            //Console.WriteLine(usererror[0].UEMessage());
+
+            foreach(var temp in usererror)
             {
-
-                 jur.DoSound();
-                 //jur.Stats(); 
-
+                Console.WriteLine( temp.UEMessage());
             }
+
         }
-    }
+
+      // private static void NewMethod(List<Animal> animal)
+      // {
+      //     foreach (var jur in animal)
+      //     {
+      //
+      //          jur.DoSound();
+      //          //jur.Stats(); 
+      //
+      //     }
+      // }
+    } 
 }
