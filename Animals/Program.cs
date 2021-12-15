@@ -21,44 +21,54 @@ namespace Animals
             //Flamingo flamingo = new Flamingo("Longi", 40, 10, 150, 180);
             //flamingo.DoSound();
             //Console.WriteLine(flamingo.Stats());
-            List<Animal> animal = new List<Animal>();
+            List<Animal> animals = new List<Animal>();
 
-            animal.Add(new Bird("kk", 30, 12, 19));
-            animal.Add(new Horse("Shiney", 600, 14, "Mustang"));
-            animal.Add(new Dog("Bingo", 35, 5, "bulldog"));
-            animal.Add(new Wolf("xxx", 45, 12, "Dingo"));
-            animal.Add(new WolfMan("yyy", 67, 36, "Tundra", "Full"));
+            animals.Add(new Bird("kk", 30, 12, 19));
+            animals.Add(new Pelican("kk1", 30, 12, 19, 34));
+            animals.Add(new Flamingo("kk123", 30, 12, 19, 431));
+            animals.Add(new Swan("kk1321", 30, 12, 19, 431));
+            animals.Add(new Horse("Shiney", 600, 14, "Mustang"));
+            animals.Add(new Dog("Bingo", 35, 5, "bulldog"));
+            animals.Add(new Wolf("xxx", 45, 12, "Dingo"));
+            animals.Add(new WolfMan("yyy", 67, 36, "Tundra", "Full"));
 
-            //animal[4].Talk();
-
-
-           //NewMethod(animal);
-
-            List<UserError> usererror = new List<UserError>();
-            usererror.Add(new NumericInputError());
-            usererror.Add(new TextInputError());
-            usererror.Add(new LongLengthInputError());
-            usererror.Add(new ShortLengthInputError());
-            usererror.Add(new WrongInputError());
-
-            //Console.WriteLine(usererror[0].UEMessage());
-
-            foreach(var temp in usererror)
+            foreach (var animal in animals)
             {
-                Console.WriteLine( temp.UEMessage());
+                animal.DoSound();
+                animal.Stats();
+
+                if (animal is Dog)
+                {
+                    Dog doggy = (Dog)animal;
+                    doggy.DoTrick();
+                }
+
+                if (animal is IPerson)
+                {
+                    IPerson hybrid = (IPerson)animal;
+                    hybrid.Talk();
+                }
             }
+
+
+           
+
+            //List<UserError> usererror = new List<UserError>();
+            //usererror.Add(new NumericInputError());
+            //usererror.Add(new TextInputError());
+            //usererror.Add(new LongLengthInputError());
+            //usererror.Add(new ShortLengthInputError());
+            //usererror.Add(new WrongInputError());
+
+            ////Console.WriteLine(usererror[0].UEMessage());
+
+            //foreach(var temp in usererror)
+            //{
+            //    Console.WriteLine( temp.UEMessage());
+            //}
 
         }
 
-      // private static void NewMethod(List<Animal> animal)
-      // {
-      //     foreach (var jur in animal)
-      //     {
-      //
-      //          jur.DoSound();
-      //          //jur.Stats(); 
-      //
-      //     }
-      // }
+
     } 
 }

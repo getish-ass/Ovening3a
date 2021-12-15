@@ -33,7 +33,7 @@ namespace Animals
 
     }
 
-    class Horse : Animal
+    class Horse : Animal, IPerson
     {
         string HorseType { get; set; }
         public Horse(string name, float weight, uint age, string horsetype) : base(name, weight, age)
@@ -48,6 +48,12 @@ namespace Animals
         public override string Stats()
         {
             return base.Stats() + $"Horse Type:{HorseType}";
+        }
+
+        public void Talk()
+        {
+
+            Console.WriteLine("I'm a Centaur!"); ;
         }
     }
     class Dog : Animal 
@@ -65,6 +71,11 @@ namespace Animals
         public override string Stats()
         {
             return base.Stats() + $"Dog Type:{DogType}";
+        }
+
+        public void DoTrick()
+        {
+            Console.WriteLine("*Dog Rolls over*");
         }
     }
     class Hedgehog : Animal
